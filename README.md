@@ -6,7 +6,7 @@ A custom logger that adds the class name as a prefix in your logs.
 
 - You need to add [logger](https://pub.dev/packages/logger) in your `pubspec.yaml` file as a
 dependency.
-- Add 'custom_logger' to your pubspec.yaml file.
+- Add `custom_logger` to your pubspec.yaml file.
   ```yaml
   custom_logger:
     git: https://github.com/YusufAbdelaziz/custom_logger
