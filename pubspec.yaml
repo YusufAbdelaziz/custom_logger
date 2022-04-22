@@ -1,7 +1,7 @@
 name: custom_logger
 description: A custom logger for logging execptions, errors, and other information.
-version: 0.0.1
-homepage:
+version: 0.0.2
+#homepage:
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
@@ -9,6 +9,7 @@ environment:
 
 dependencies:
   logger: ^1.1.0
+  stack_trace: ^1.10.0
   flutter:
     sdk: flutter
 

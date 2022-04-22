@@ -1,6 +1,7 @@
 library custom_logger;
 
 import 'package:logger/logger.dart';
+import 'package:stack_trace/stack_trace.dart';
 
 /// Used to be added to any class so runtime type can be inferred automatically,
 /// without specifying the type.
@@ -26,9 +27,14 @@ class CustomLogPrinter extends PrettyPrinter {
   List<String> log(LogEvent event) {
     final level = event.level;
     final emoji = PrettyPrinter.levelEmojis[level];
-    return [
-      '[${level.toString().split(".")[1].toUpperCase()} ${emoji!.trimRight()}] $className - ${event.message}'
-    ];
+    final eventStrings = <String>[];
+    eventStrings.add(
+        '[${level.toString().split(".")[1].toUpperCase()} ${emoji!.trimRight()}] $className - ${event.message}');
+    if (event.error != null) eventStrings.add('\t\t\tError : ${event.error}');
+    if (event.stackTrace != null) {
+      eventStrings.add('\t\t\tStackTrace : ${Trace.format(event.stackTrace!)}');
+    }
+    return eventStrings;
   }
 }
 

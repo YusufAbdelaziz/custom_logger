@@ -7,7 +7,8 @@ class Example with CustomLogger {
     logger.d('debug');
     logger.i('info');
     logger.w('warning');
-    logger.e('error');
+    logger.e('error', 'an error',
+        StackTrace.fromString('a stacktrace from exception'));
     logger.wtf('wtf');
   }
 }
