@@ -6,12 +6,13 @@ A custom logger that adds the class name as a prefix in your logs.
 
 - You need to add [logger](https://pub.dev/packages/logger) in your `pubspec.yaml` file as a
 dependency.
-- Add 'custom_logger' to your pubspec.yaml file.
+- Add `custom_logger` to your pubspec.yaml file.
   ```yaml
   custom_logger:
     git: https://github.com/YusufAbdelaziz/custom_logger
   ```
 - You'd need to add `CustomLogger` as a mixin with your classes.
+- It's recommended to use [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console) plugin to make the logs colorful in your console as ANSI color codes are not supported in some consoles and various logging or exception handling services like Sentry don't support it neither.
 ## Usage
 
 ```dart
@@ -39,3 +40,5 @@ void main() {
   logger.i('Hello from myFunction');
 }
 ```
+
+![Example](https://i.imgur.com/MHvGTWZ.png)
