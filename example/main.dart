@@ -1,7 +1,6 @@
-import 'package:custom_logger/custom_logger.dart';
-import 'package:logger/logger.dart';
+import 'package:custom_logger/src/utils.dart';
 
-class Example with CustomLogger {
+class Example with CustomLoggerMixin {
   void demo() {
     logger.v('verbose');
     logger.d('debug');
@@ -10,6 +9,7 @@ class Example with CustomLogger {
     logger.e('error', 'an error',
         StackTrace.fromString('a stacktrace from exception'));
     logger.wtf('wtf');
+    logger.prettyJson(json: {'Name': 'Joe', 'Age': 22});
   }
 }
 

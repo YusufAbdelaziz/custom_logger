@@ -16,7 +16,7 @@ dependency.
 ## Usage
 
 ```dart
-import 'package:custom_logger/custom_logger.dart';
+import 'package:custom_logger/utils.dart';
 import 'package:logger/logger.dart';
 
 class Example with CustomLogger {
@@ -27,6 +27,7 @@ class Example with CustomLogger {
     logger.w('warning');
     logger.e('error');
     logger.wtf('wtf');
+    logger.prettyJson(json: {'Name': 'Joe', 'Age': 22});
   }
 }
 
@@ -41,4 +42,4 @@ void main() {
 }
 ```
 
-![Example](https://i.imgur.com/MHvGTWZ.png)
+![Example](https://i.imgur.com/41dtEgN.png)
