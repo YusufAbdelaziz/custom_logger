@@ -44,7 +44,7 @@ class CustomLogPrinter extends PrettyPrinter {
 /// Used only to log high level functions that don't belong to a class or may
 /// be used with a class we're not interested in its name.
 class GenericLogger {
-  static Logger create({required String functionName}) {
+  static CustomLogger create({required String functionName}) {
     if (functionName.startsWith('Instance of')) {
       functionName = _formatClassName(functionName);
     }
