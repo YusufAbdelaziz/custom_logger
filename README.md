@@ -11,7 +11,7 @@ dependency.
   custom_logger:
     git: https://github.com/YusufAbdelaziz/custom_logger
   ```
-- You'd need to add `CustomLoggerMixin ` as a mixin with your classes.
+- You'd need to add `CustomLoggerMixin` as a mixin with your classes.
 - It's recommended to use [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console) plugin to make the logs colorful in your console as ANSI color codes are not supported in some consoles and various logging or exception handling services like Sentry don't support it neither.
 ## Usage
 
