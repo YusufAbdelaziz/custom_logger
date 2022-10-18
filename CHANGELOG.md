@@ -1,3 +1,7 @@
+## 0.2.1
+
+* Exported `CustomLogger` class.
+
 ## 0.2.0
 
 * Added `prettyJson` which prints a json object beautifully.
