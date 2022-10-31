@@ -1,5 +1,6 @@
 library custom_logger;
 
+import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 import 'package:stack_trace/stack_trace.dart';
 
@@ -10,12 +11,12 @@ import 'logger.dart';
 mixin CustomLoggerMixin {
   CustomLogger _logger(String runtimeType) {
     return CustomLogger(
+      filter: kReleaseMode ? ReleaseModeLogFilter() : DevelopmentFilter(),
       printer: CustomLogPrinter(runtimeType),
     );
   }
 
   CustomLogger get logger => _logger(runtimeType.toString());
-
 }
 
 /// Used to provide the format with which logs are printed.
@@ -38,6 +39,13 @@ class CustomLogPrinter extends PrettyPrinter {
       eventStrings.add('\t\t\tStackTrace : ${Trace.format(event.stackTrace!)}');
     }
     return eventStrings;
+  }
+}
+
+class ReleaseModeLogFilter extends LogFilter {
+  @override
+  bool shouldLog(LogEvent event) {
+    return event.level == Logger.level;
   }
 }
 
