@@ -11,7 +11,7 @@ import 'logger.dart';
 mixin CustomLoggerMixin {
   CustomLogger _logger(String runtimeType) {
     return CustomLogger(
-      filter: kReleaseMode ? ReleaseModeLogFilter() : DevelopmentFilter(),
+      filter: kDebugMode ? DevelopmentFilter() : ReleaseModeLogFilter(),
       printer: CustomLogPrinter(runtimeType),
     );
   }
