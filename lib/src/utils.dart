@@ -1,6 +1,5 @@
 library custom_logger;
 
-import 'package:flutter/foundation.dart';
 import 'package:logger/logger.dart';
 import 'package:stack_trace/stack_trace.dart';
 
@@ -10,8 +9,13 @@ import 'logger.dart';
 /// without specifying the type.
 mixin CustomLoggerMixin {
   CustomLogger _logger(String runtimeType) {
+    LogFilter filter = ReleaseModeLogFilter();
+    assert(() {
+      filter = DevelopmentFilter();
+      return true;
+    }());
     return CustomLogger(
-      filter: kDebugMode ? DevelopmentFilter() : ReleaseModeLogFilter(),
+      filter: filter,
       printer: CustomLogPrinter(runtimeType),
     );
   }
