@@ -45,7 +45,7 @@ class CustomLogPrinter extends PrettyPrinter {
 class ReleaseModeLogFilter extends LogFilter {
   @override
   bool shouldLog(LogEvent event) {
-    return event.level == Logger.level;
+    return event.level.index >= level!.index;
   }
 }
 
